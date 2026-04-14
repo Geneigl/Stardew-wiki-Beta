@@ -5,33 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stardew Wiki</title>
     <link rel="stylesheet" href="index.css">
-  <link rel="manifest" href="manifest.json">
-  </head>
+    <link rel="manifest" href="manifest.json">
+</head>
 <body>
 
-    <div class="contenedor-principal">
+    <div class="contenedor-principal" id="contenido-dinamico">
         <img src="logosv.png" class="logo-inicio" alt="Stardew Valley Logo">
 
         <div class="menu-lista">
-            
-            <a href="sv1.html" class="tablilla-boton">
-                <img src="1.png" class="icono">
-            </a>
-
-            <a href="sv2.html" class="tablilla-boton">
-                <img src="2.png" class="icono">
-            </a>
-
-            <a href="sv3.html" class="tablilla-boton">
-                <img src="3.png" class="icono">
-            </a>
-
-            <a href="sv4.html" class="tablilla-boton">
-                <img src="4.png" class="icono">
-            </a>
-
+            <a href="sv1.html" class="tablilla-boton"><img src="1.png" class="icono"></a>
+            <a href="sv2.html" class="tablilla-boton"><img src="2.png" class="icono"></a>
+            <a href="sv3.html" class="tablilla-boton"><img src="3.png" class="icono"></a>
+            <a href="sv4.html" class="tablilla-boton"><img src="4.png" class="icono"></a>
         </div>
     </div>
 
+    <div class="controles-inferiores">
+        <button id="btnMusica" class="sv-control-btn">
+            <span id="iconoAltavoz">X</span>
+        </button>
+        
+        <button id="btnTema" class="sv-control-btn">
+            <img src="svoscuro.png" style="width: 30px; image-rendering: pixelated;" alt="Modo">
+        </button>
+        
+        <button id="btnAviso" class="sv-question-btn">?</button>
+    </div>
+
+    <audio id="musicaFondo"></audio>
+
+    <div id="modalAviso" class="sv-modal">
+        <div class="sv-modal-box">
+            <div class="sv-modal-content">
+                <h2 class="sv-title-green">¡Aviso!</h2>
+                <p>Esta versión <strong>no está actualizada</strong>. Es un prototipo para testear el diseño y funcionalidad.</p>
+                <p>El proyecto <strong>sigue en proceso</strong>. Trabajamos en los IDs de la 1.6 y actualización de Items.</p>
+                <hr class="sv-divider">
+                <p class="sv-credits">
+                    Datos basados en la lista de <span class="aquiles-name">Mateus Aquino</span>.
+                </p>
+                <p class="sv-credits">
+                    Diseñado por <span class="aquiles-name">Genessis Lopez</span>.
+                </p>
+            </div>
+            <button id="btnCerrar" class="sv-back-btn">VOLVER</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
