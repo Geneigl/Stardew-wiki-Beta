@@ -1,0 +1,190 @@
+:root {
+    --bg-stardew: #f4d092;
+    --iridio-puro: #b155ff;
+    --iridio-oscuro: #6a2da8;
+    --negro-moradoso: #1a0a24;
+    --borde-iridio: #3c1053;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    background: url('https://i.pinimg.com/736x/95/26/f0/9526f08c1e26dcb4f6b9afd9d76af8ab.jpg') no-repeat center center;
+    background-size: cover;
+    transition: background 0.4s ease;
+}
+
+body.dark-theme::before {
+    background-image: url('fondosv_pc4.jpg');
+}
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    margin: 0; padding: 15px; color: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; min-height: 100vh;
+}
+
+.logo-oscuro {
+    display: none !important;
+}
+
+body.dark-theme .logo-claro {
+    display: none !important;
+}
+
+body.dark-theme .logo-oscuro {
+    display: inline-block !important;
+}
+
+.regresar, .modo-oscuro {
+    position: fixed;
+    top: 15px;
+    z-index: 200;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.regresar { right: 15px; }
+.modo-oscuro { right: 75px; }
+
+.regresar img, .modo-oscuro img {
+    width: 45px;
+    height: auto;
+    image-rendering: pixelated;
+    filter: drop-shadow(2px 2px 0px var(--borde-iridio));
+}
+
+.logo-container img {
+    width: 350px; max-width: 90%;
+    image-rendering: pixelated;
+}
+
+h2 {
+    text-align: center; color: var(--bg-stardew);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px var(--borde-iridio);
+}
+
+.buscador-container {
+    background: var(--bg-stardew); 
+    padding: 15px; 
+    border-radius: 12px; 
+    margin-bottom: 20px;
+    border: 3px solid #6d3311;
+    width: 95%; max-width: 900px;
+    box-sizing: border-box;
+}
+
+input { 
+    padding: 15px; border: 2px solid #6d3311; 
+    border-radius: 6px; font-size: 18px;
+    width: 100%; box-sizing: border-box;
+    outline: none; background: #fff; color: #492310;
+}
+
+.categorias-grid {
+    display: flex; flex-wrap: wrap;
+    gap: 8px; margin-top: 12px;
+    justify-content: center;
+}
+
+.btn-cat {
+    background: #e17c37; color: white;
+    border: 2px solid #6d3311;
+    padding: 8px 14px; border-radius: 8px;
+    font-weight: bold; cursor: pointer;
+}
+
+ul { 
+    padding: 0; margin: 0; 
+    list-style: none; width: 95%; max-width: 900px;
+}
+
+li { 
+    background: var(--bg-stardew); color: #492310;
+    margin-bottom: 12px; padding: 18px; 
+    border-radius: 8px; border: 3px solid #6d3311;
+    border-left: 15px solid #e17c37; 
+    position: relative;
+    min-height: 50px;
+    padding-right: 50px;
+}
+
+.btn-copy-corner {
+    position: absolute;
+    top: 0; right: 0;
+    background: #e17c37;
+    border-left: 3px solid #6d3311;
+    border-bottom: 3px solid #6d3311;
+    border-top: none; border-right: none;
+    border-radius: 0 5px 0 8px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn-copy-corner img {
+    width: 20px; height: 20px;
+    filter: brightness(0) invert(1);
+    image-rendering: pixelated;
+}
+
+.tag-tipo {
+    font-size: 10px; 
+    background: #6d3311; 
+    color: #f4d092; 
+    padding: 3px 8px; 
+    border-radius: 4px; 
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+
+body.dark-theme h2 {
+    color: var(--iridio-puro);
+}
+
+body.dark-theme .buscador-container,
+body.dark-theme li {
+    background: var(--negro-moradoso);
+    color: #e0caff;
+    border-color: var(--borde-iridio);
+}
+
+body.dark-theme li {
+    border-left: 15px solid var(--iridio-puro);
+}
+
+body.dark-theme input {
+    background: #251030;
+    color: #fff;
+    border-color: var(--iridio-oscuro);
+}
+
+body.dark-theme .btn-cat,
+body.dark-theme .btn-copy-corner {
+    background: var(--iridio-oscuro);
+    border-color: var(--borde-iridio);
+    color: #fff;
+}
+
+body.dark-theme .item-id {
+    color: var(--iridio-puro);
+}
+
+body.dark-theme .tag-tipo {
+    background: var(--iridio-puro);
+    color: var(--negro-moradoso);
+}
+
+@media screen and (min-width: 800px) {
+    .logo-container img { width: 600px; }
+    .regresar img, .modo-oscuro img { width: 60px; }
+    .modo-oscuro { right: 90px; }
+}

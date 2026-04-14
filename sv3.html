@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki de Items - Stardew Valley</title>
+    <link rel="stylesheet" href="svo.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="logosv.png" class="logo-claro" alt="Stardew Valley Logo">
+        <img src="logosv2.png" class="logo-oscuro" alt="Stardew Valley Logo Iridio">
+    </div>
+
+    <h2>Wiki de Items</h2>
+    
+    <a href="index.html" class="regresar">
+        <img src="3.png" class="icono" alt="Regresar">
+    </a>
+
+    <button class="modo-oscuro" onclick="toggleDarkMode()" title="Cambiar modo">
+        <img src="svoscuro.png" class="icono" alt="Modo">
+    </button>
+    
+    <div class="buscador-container">
+        <input type="text" id="filtro" placeholder=" Buscar por nombre o ID..." oninput="filtrar()">
+        
+        <div class="categorias-grid">
+            <button class="btn-cat" onclick="filtrarPorClase('Todos')">Todos</button>
+            <button class="btn-cat" onclick="filtrarPorClase('Bota')">Botas</button>
+            <button class="btn-cat" onclick="filtrarPorClase('Camisa')">Camisas</button>
+            <button class="btn-cat" onclick="filtrarPorClase('Maniqui')">Maniquíes</button>
+            <button class="btn-cat" onclick="filtrarPorClase('Pantalón')">Pantalones</button>
+            <button class="btn-cat" onclick="filtrarPorClase('Sombrero')">Sombreros</button>
+        </div>
+    </div>
+    
+    <ul id="listaVisual"></ul>
+
+    <script src="sv3.js"></script>
+</body>
+</html>
