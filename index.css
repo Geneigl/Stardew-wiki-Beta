@@ -1,11 +1,33 @@
+:root {
+    --bg-stardew: #f4d092;
+    --iridio-puro: #b155ff;
+    --iridio-oscuro: #6a2da8;
+    --negro-moradoso: #1a0a24;
+    --borde-iridio: #3c1053;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
 body::before {
     content: "";
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     background: url('https://i.pinimg.com/736x/95/26/f0/9526f08c1e26dcb4f6b9afd9d76af8ab.jpg') no-repeat center center;
     background-size: cover;
+    transition: background 0.4s ease;
+}
+
+body.dark-theme::before {
+    background-image: url('fondosv_pc4.jpg');
 }
 
 .contenedor-principal {
@@ -13,12 +35,14 @@ body::before {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100vh;
+    justify-content: flex-start;
     padding-top: 40px;
 }
 
 .logo-inicio {
     width: 100%;
-    max-width: 800px; 
+    max-width: 800px;
     margin-bottom: 30px;
     display: block;
     image-rendering: pixelated;
@@ -28,7 +52,7 @@ body::before {
     display: flex;
     flex-direction: row;
     width: 90%;
-    max-width: 320px; 
+    max-width: 320px;
     justify-content: space-between;
     padding: 0;
 }
@@ -39,12 +63,15 @@ body::before {
     justify-content: center;
     background-image: url('Marco.png');
     background-size: 100% 100%;
-    width: 65px; 
+    width: 65px;
     height: 65px;
     transition: transform 0.2s ease;
     filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.4));
     text-decoration: none;
     overflow: hidden;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
 .tablilla-boton:hover {
@@ -52,10 +79,146 @@ body::before {
 }
 
 .icono {
-    width: 80px; 
+    width: 80px;
     height: 60px;
-    padding: 0;   
+    padding: 0;
     flex-shrink: 0;
     object-fit: contain;
     image-rendering: pixelated;
+}
+
+.controles-inferiores {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.sv-control-btn, .sv-question-btn {
+    width: 45px;
+    height: 45px;
+    background-image: url('Marco.png');
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffd700;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 2px 2px 0px #7d2a1c;
+    cursor: pointer;
+    padding: 0;
+}
+
+.sv-control-btn img {
+    width: 30px;
+    height: auto;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+.sv-control-btn:active, .sv-question-btn:active {
+    transform: scale(0.9);
+}
+
+.sv-modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+.sv-modal-box {
+    background: #0b111d;
+    border: 6px solid #b25816;
+    outline: 4px solid #f9a34a;
+    outline-offset: -10px;
+    width: 85%;
+    max-width: 450px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.sv-modal-content {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 25px 20px 10px 20px;
+    color: #fff9e6;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.sv-title-green {
+    color: #4df353;
+    text-align: center;
+    margin-top: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px #1a3c1c;
+}
+
+.sv-divider {
+    border: 1px dashed #b25816;
+    margin: 15px 0;
+    opacity: 0.6;
+}
+
+.aquiles-name {
+    color: #b066ff;
+    font-weight: bold;
+}
+
+.sv-credits:last-of-type .aquiles-name {
+    color: #ffb7ce;
+    text-shadow: 1px 1px 0px #6d404d;
+}
+
+.sv-back-btn {
+    background-image: url('Marco.png');
+    background-size: 100% 100%;
+    background-color: #7d4a27;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    min-width: 150px;
+    height: 55px;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 2px 2px 0px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    image-rendering: pixelated;
+}
+
+.sv-back-btn:active {
+    transform: scale(0.95);
+    filter: brightness(0.8);
+}
+
+.sv-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sv-modal-content::-webkit-scrollbar-thumb {
+    background: #f9a34a;
+    border-radius: 4px;
 }
